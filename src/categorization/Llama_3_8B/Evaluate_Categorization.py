@@ -15,7 +15,7 @@ PROJECT_ROOT = SCRIPT_DIR.parents[2]
 MODEL_FILE = SCRIPT_DIR / "SingleLabel.xlsx"
 
 # Manually annotated ground-truth file.
-MANUAL_FILE = PROJECT_ROOT / "Data" / "categorie_manuali.xlsx"
+MANUAL_FILE = PROJECT_ROOT / "data" / "categorie_manuali.csv"
 
 # Validation results are stored in the current experiment directory.
 OUTPUT_FILE = SCRIPT_DIR / "SingleLabel_Evaluation.xlsx"
@@ -29,7 +29,13 @@ print("Loading files...")
 # ---------------------------------------------------------------------
 
 df_modello = pd.read_excel(MODEL_FILE)
-df_manuale = pd.read_excel(MANUAL_FILE)
+df_manuale = pd.read_csv(
+    MANUAL_FILE,
+    sep=None,
+    engine="python",
+    on_bad_lines="skip",
+    encoding="utf-8-sig"
+)
 
 print("Files loaded successfully.")
 
