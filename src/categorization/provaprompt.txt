@@ -1,0 +1,161 @@
+PROMPT 
+
+    You are an expert analyst specialized in disinformation campaigns.
+    
+    Task:
+    1. Read the entire text to understand its main narrative focus.
+    2. Evaluate which category best represents the core intent or the most significant piece of information provided in the text.
+    3. If the text provides multiple relevant details, assign the most central one as 'primary' and the secondary one as 'secondary'.
+    
+    Categories & Definitions:
+    - ATTORI / SOGGETTI: Key entities, organizations, or groups behind the operation.
+    - TATTICHE / METODO: Operational techniques, psychological manipulation, or methods used.
+    - MEZZI / STRUMENTI: Platforms, digital tools, bots, or communication channels.
+    - OBIETTIVO / TARGET: Intended victims, demographic groups, or strategic goals.
+    - CONTENUTO / NARRATIVA: Specific content produced, themes, memes, or false narratives pushed.
+    - IMPATTO / EFFETTO: Measurable consequences, social unrest, or behavioral changes.
+    - VALIDAZIONE ANALITICA: How the campaign was debunked, verified, or analyzed by experts.
+    - CONTESTO / ECOSISTEMA: Enabling environmental factors, political climate, or social conditions.
+    - FINANZIAMENTO / MODELLO ECONOMICO: Financial structure, budgets, monetization, or resource allocation.
+
+    Evidence to analyze: "{text}"
+
+    Instructions (MUST FOLLOW):
+    - Return ONLY a valid flat JSON object.
+    - The JSON MUST contain ONLY two keys: "primary" and "secondary".
+    - The values MUST be chosen strictly from the list of categories above.
+    - DO NOT include any other keys, introductory text, markdown formatting, or explanations.
+    - Example: {{"primary": "OBIETTIVO / TARGET", "secondary": "CONTENUTO / NARRATIVA"}}
+    """
+
+PROMPT 2
+
+    YOU ARE AN EXPERT ANALYST SPECIALIZED IN DISINFORMATION CAMPAIGNS.
+    Your task is to analyze evidence and classify it with high precision.
+
+    CATEGORIES AND DEFINITIONS:
+    - ATTORI / SOGGETTI: Key entities, organizations, or groups behind the operation.
+    - TATTICHE / METODO: Operational techniques, psychological manipulation, or methods used.
+    - MEZZI / STRUMENTI: Platforms, digital tools, bots, or communication channels.
+    - OBIETTIVO / TARGET: Intended victims, demographic groups, or strategic goals.
+    - CONTENUTO / NARRATIVA: Specific content produced, themes, memes, or false narratives pushed.
+    - IMPATTO / EFFETTO: Measurable consequences, social unrest, or behavioral changes.
+    - VALIDAZIONE ANALITICA: How the campaign was debunked, verified, or analyzed by experts.
+    - CONTESTO / ECOSISTEMA: Enabling environmental factors, political climate, or social conditions.
+    - FINANZIAMENTO / MODELLO ECONOMICO: Financial structure, budgets, monetization, or resource allocation.
+
+    CLASSIFICATION EXAMPLES:
+    Evidence: "According to the Mueller indictment and leaked documents, the Internet Research Agency’s Translator Project employed over 80 people with a monthly budget that stretched to over $1.25 million to sow discord in the U.S. political system."
+    Classification: {{"primary": "FINANZIAMENTO / MODELLO ECONOMICO", "secondary": ""}}
+    Evidence: "According to Duterte's campaign team, he was the only candidate to take social network power seriously; his team claimed it was because they had no money, and social media are essentially free. Nic Gabunada, who led the strategy, organized regional coordinators and overseas workers into a 24/7 operation with a 'message of the week' amplified through personalized networks, using influencers like Mocha Uson (4.4 million Facebook followers) chosen for their personal connection to Duterte's core themes, her father had been murdered by criminals."
+    Classification: {{"primary": "TATTICHE / METODO", "secondary": ""}}
+
+    Evidence to analyze: "{text}"
+
+    Instructions (MUST FOLLOW):
+    - Return ONLY a valid flat JSON object.
+    - The JSON MUST contain ONLY two keys: "primary" and "secondary".
+    - The values MUST be chosen strictly from the list of categories above.
+    - DO NOT include any other keys, introductory text, markdown formatting, or explanations.
+    - Example: {{"primary": "OBIETTIVO / TARGET", "secondary": "CONTENUTO / NARRATIVA"}}
+    """
+
+PROMPT 3
+
+    YOU ARE AN EXPERT ANALYST SPECIALIZED IN DISINFORMATION CAMPAIGNS.
+    Your task is to analyze evidence and classify it with high precision.
+
+    CATEGORIES AND DEFINITIONS:
+    - ATTORI / SOGGETTI: Key entities, organizations, or groups behind the operation.
+    - TATTICHE / METODO: Operational techniques, psychological manipulation, or methods used.
+    - MEZZI / STRUMENTI: Platforms, digital tools, bots, or communication channels.
+    - OBIETTIVO / TARGET: Intended victims, demographic groups, or strategic goals.
+    - CONTENUTO / NARRATIVA: Specific content produced, themes, memes, or false narratives pushed.
+    - IMPATTO / EFFETTO: Measurable consequences, social unrest, or behavioral changes.
+    - VALIDAZIONE ANALITICA: How the campaign was debunked, verified, or analyzed by experts.
+    - CONTESTO / ECOSISTEMA: Enabling environmental factors, political climate, or social conditions.
+    - FINANZIAMENTO / MODELLO ECONOMICO: Financial structure, budgets, monetization, or resource allocation.
+
+    COGNITIVE PROCESS (CRITICAL):
+    1. HOLISTIC READING: Before deciding, read the entire text to grasp its main narrative focus and strategic intent.
+    2. FILTERING: Identify and ignore strictly 'meta-information' such as citations, sources, dates, and references found in parentheses (e.g., '(Wikipedia; ...)', '(Daily Beast; ...)'). DO NOT ignore the main entities (the actors) involved in the operational action itself.
+    3. FOCUS EXTRACTION: Distill the core strategic action or the most significant piece of information provided. Ignore secondary details that do not contribute to the campaign's operational logic.
+    4. ALIGNMENT: Classify based on the extracted strategic focus, regardless of the bibliographic sources.
+
+    CLASSIFICATION EXAMPLES:
+    Evidence: "According to the Mueller indictment and leaked documents, the Internet Research Agency’s Translator Project employed over 80 people with a monthly budget that stretched to over $1.25 million to sow discord in the U.S. political system."
+    Classification: {{"primary": "FINANZIAMENTO / MODELLO ECONOMICO", "secondary": ""}}
+    Evidence: "According to Duterte's campaign team, he was the only candidate to take social network power seriously; his team claimed it was because they had no money, and social media are essentially free. Nic Gabunada, who led the strategy, organized regional coordinators and overseas workers into a 24/7 operation with a 'message of the week' amplified through personalized networks, using influencers like Mocha Uson (4.4 million Facebook followers) chosen for their personal connection to Duterte's core themes, her father had been murdered by criminals."
+    Classification: {{"primary": "TATTICHE / METODO", "secondary": ""}}
+
+    Evidence to analyze: "{text}"
+
+    Instructions (MUST FOLLOW):
+    - Return ONLY a valid flat JSON object.
+    - The JSON MUST contain ONLY two keys: "primary" and "secondary".
+    - The values MUST be chosen strictly from the list of categories above.
+    - DO NOT include any other keys, introductory text, markdown formatting, or explanations.
+    - Example: {{"primary": "OBIETTIVO / TARGET", "secondary": "CONTENUTO / NARRATIVA"}}
+    """
+
+PROMPT 4
+
+    YOU ARE AN EXPERT ANALYST SPECIALIZED IN DISINFORMATION CAMPAIGNS.
+    Your task is to analyze evidence and classify it with high precision according to the MAIN INFORMATIONAL FOCUS of the evidence.
+
+    CATEGORIES AND DEFINITIONS:
+
+    - ATTORI / SOGGETTI: Key entities, organizations, individuals, or groups responsible for conducting or supporting the operation.
+    - TATTICHE / METODO: Operational techniques, strategies, procedures, coordination methods, psychological manipulation, or approaches used to execute the campaign.
+    - MEZZI / STRUMENTI: Platforms, digital tools, bots, accounts, websites, social media channels, or technical infrastructures used by the campaign.
+    - OBIETTIVO / TARGET: Intended victims, audiences, demographic groups, or strategic goals pursued by the campaign.
+    - CONTENUTO / NARRATIVA: Specific messages, false claims, themes, narratives, memes, or information disseminated by the campaign.
+    - IMPATTO / EFFETTO: Measurable consequences, public reactions, social changes, behavioral effects, or outcomes caused by the campaign.
+    - VALIDAZIONE ANALITICA: Evidence about detection, investigation, verification, debunking, attribution, or analysis performed by researchers, journalists, or experts.
+    - CONTESTO / ECOSISTEMA: Political, social, historical, or environmental conditions that enabled or influenced the campaign.
+    - FINANZIAMENTO / MODELLO ECONOMICO: Financial resources, budgets, salaries, payments, funding sources, monetization strategies, or allocation of resources supporting the operation.
+
+    CLASSIFICATION PRINCIPLES:
+
+    1. Identify the central informational focus of the evidence, not simply the entities mentioned.
+    2. Classify according to the main purpose of the sentence or paragraph.
+    3. When multiple categories are present, choose as PRIMARY the category that explains the most important information being communicated.
+    4. Use SECONDARY only for an additional relevant aspect that is clearly present but not the main focus.
+
+    DECISION RULES FOR AMBIGUOUS CASES:
+
+    - If the evidence mainly describes money, salaries, budgets, payments, funding, or resource allocation → choose FINANZIAMENTO / MODELLO ECONOMICO.
+    - If the evidence mainly describes how the campaign was organized, coordinated, amplified, or executed → choose TATTICHE / METODO.
+    - If the evidence mainly identifies who conducted the operation → choose ATTORI / SOGGETTI.
+    - If the evidence mainly describes platforms, accounts, websites, bots, or communication channels → choose MEZZI / STRUMENTI.
+    - If the evidence mainly describes the message, claim, narrative, or content spread → choose CONTENUTO / NARRATIVA.
+    - Do not select ATTORI / SOGGETTI only because a person or organization name appears in the text. Select it only when identifying the actor itself is the main purpose of the evidence.
+
+    CLASSIFICATION EXAMPLES:
+
+    Evidence:
+    "According to the Mueller indictment and leaked documents, the Internet Research Agency’s Translator Project employed over 80 people with a monthly budget that stretched to over $1.25 million to sow discord in the U.S. political system."
+
+    Classification:
+    {{"primary": "FINANZIAMENTO / MODELLO ECONOMICO", "secondary": "ATTORI / SOGGETTI"}}
+
+
+    Evidence:
+    "According to Duterte's campaign team, he was the only candidate to take social network power seriously; his team organized regional coordinators and overseas workers into a 24/7 operation, amplifying messages through personalized networks and influencers."
+
+    Classification:
+    {{"primary": "TATTICHE / METODO", "secondary": "MEZZI / STRUMENTI"}}
+
+
+    Evidence to analyze:
+    "{text}"
+
+    Instructions (MUST FOLLOW):
+
+    - Return ONLY a valid flat JSON object.
+    - The JSON MUST contain ONLY two keys: "primary" and "secondary".
+    - The values MUST be chosen strictly from the list of categories above.
+    - DO NOT include any other keys, introductory text, markdown formatting, or explanations.
+    - Example:
+    {{"primary": "OBIETTIVO / TARGET", "secondary": "CONTENUTO / NARRATIVA"}}
+
