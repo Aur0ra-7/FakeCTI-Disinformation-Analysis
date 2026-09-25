@@ -96,7 +96,26 @@ The resulting evaluation is stored in:
 ```text
 MultiLabel_Evaluation.xlsx
 ```
+## REPOSITORY STRUCTURE
 
+    categorization/
+    |
+    |-- README.md
+    |-- provaprompt.txt
+    |-- SingleLabel_All_Results.xlsx
+    |
+    |-- Llama_3_8B/
+    |   |-- Categorization.py
+    |   `-- Evaluate_Categorization.py
+    |
+    `-- Mistral_Nemo/
+        |-- categorization.py
+        |-- evaluate_categorization.py
+        |
+        `-- Double_categorization/
+            |-- double_evaluate.py
+            |-- MultiLabel.xlsx
+            `-- MultiLabel_Evaluation.xlsx
 
 ## OUTPUT FILES
 
