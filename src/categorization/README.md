@@ -1,8 +1,8 @@
-# FAKE NEWS CATEGORIZATION
+# CTI EVIDENCE CATEGORIZATION
 
 This module contains the experiments performed to automatically categorize
-fake-news items from the FakeCTI dataset using local Large Language Models
-(LLMs).
+CTI evidence collected from the FakeCTI disinformation campaigns using local
+Large Language Models (LLMs).
 
 Two models were evaluated using different prompt configurations and temperature
 values. The generated predictions were compared with manually assigned reference
@@ -32,8 +32,8 @@ separately from the Hugging Face repositories linked above.
 
 For both models, the experiment consists of two steps:
 
-1. **Categorization** — generate category predictions.
-2. **Evaluation** — compare the predictions with the manual annotations.
+1. **Categorization** — generate `primary` and `secondary` category predictions for each CTI evidence.
+2. **Evaluation** — compare the predictions with the manually assigned reference categories.
 
 ### Llama 3 8B
 
@@ -71,15 +71,18 @@ Prompt and temperature configurations are selected manually before each run.
 
 ## DOUBLE CATEGORIZATION
 
-An additional evaluation was performed for fake-news items associated with two
-manually assigned categories.
+An additional evaluation was performed using an extended multi-label ground truth.
+The original manual annotation assigned one reference category to each CTI evidence.
+The ground truth was subsequently extended by adding a second reference category
+when an evidence contained two distinct informational aspects.
 
-Instead of repeating the complete prompt/temperature exploration, this experiment
-uses the best-performing Mistral-Nemo configuration identified during the
-single-label experiments:
+Instead of repeating the complete model, prompt, and temperature exploration,
+this experiment uses the best-performing Mistral-Nemo configuration identified
+during the previous experiments:
 
+- Model: `Mistral-Nemo-Instruct-2407-Q4_K_S`
 - Prompt: `Prompt 4`
-- Temperature: `[BEST TEMPERATURE]`
+- Temperature: `0.3`
 
 `MultiLabel.xlsx` contains the predictions generated using this configuration
 and is provided so that the evaluation can be reproduced without rerunning the

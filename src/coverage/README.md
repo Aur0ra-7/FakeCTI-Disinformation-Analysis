@@ -1,8 +1,8 @@
 # Evidence Coverage
 
-This module evaluates the ability of different retrieval methods to identify relevant evidence for fake news items and the subsequent ability of Mistral-Nemo to select the correct evidence from the retrieved candidates.
+This module evaluates different retrieval strategies for identifying evidence relevant to individual fake news items. For each fake news item, the retrieval stage returns the Top-10 candidate evidences, which are then provided to Mistral-Nemo for the final evidence-selection stage.
 
-The experiments are conducted on a benchmark of 101 fake news items using three progressively different evidence sets.
+The experiments are conducted on a benchmark of 101 fake news items using three progressively extended evidence sets.
 
 ## Experimental Setup
 
@@ -19,15 +19,15 @@ The same 101 fake news items are used across the experiments. However, each evid
 For each evidence set, the coverage experiment follows the same pipeline:
 
 1. A benchmark of **101 fake news items** is used as the input set.
-2. One of the four retrieval methods (**Keyword, TF-IDF, E5, or Cross-Encoder**) retrieves the **Top-10 candidate evidences** for each fake news item.
-3. The fake news item and its Top-10 candidates are provided to **Mistral-Nemo-Instruct-2407-Q4_K_S**, which selects the evidence IDs that are relevant to the specific fake news item or returns `NONE` when no candidate satisfies the selection criteria.
-4. The resulting file contains, for each fake news item, both the retrieved candidates and the evidence IDs selected by Mistral-Nemo.
-5. This output is evaluated through the common `evaluate.py` script against the ground truth associated with the selected evidence set.
-6. `evaluate.py` computes the retrieval, evidence-selection, and end-to-end evaluation metrics and generates the corresponding evaluation report.
+2. One of the four retrieval strategies (**Keyword, TF-IDF, E5, or Cross-Encoder**) ranks the available evidences and retrieves the **Top-10 candidates** for each fake news item.
+3. The fake news item and its Top-10 retrieved candidates are provided to **Mistral-Nemo-Instruct-2407-Q4_K_S**.
+4. Mistral-Nemo performs the evidence-selection stage, returning the IDs of the relevant evidences or `NONE` when no candidate satisfies the selection criteria.
+5. The resulting output is evaluated against the ground truth associated with the selected evidence set through the common `evaluate.py` script.
+6. `evaluate.py` computes metrics for both the retrieval stage and the subsequent evidence-selection stage.
 
-The pipeline is repeated for each combination of the **3 evidence sets × 4 retrieval methods**, resulting in 12 experimental configurations.
+The pipeline is repeated for each combination of the **3 evidence sets × 4 retrieval strategies**, resulting in 12 experimental configurations.
 
-## Retrieval Methods
+## Retrieval Strategies
 
 Four retrieval approaches are evaluated for each evidence set:
 
@@ -36,7 +36,7 @@ Four retrieval approaches are evaluated for each evidence set:
 - **E5** (`intfloat/multilingual-e5-large`)
 - **Cross-Encoder** (`cross-encoder/ms-marco-MiniLM-L-6-v2`)
 
-Each method retrieves the **Top-10 candidate evidences** for a fake news item.
+Each strategy ranks the available evidences and retrieves the **Top-10 candidates** for each fake news item.
 
 The retrieved candidates are then provided to **Mistral-Nemo-Instruct-2407-Q4_K_S**, which selects only the evidence that provides a concrete connection to the specific fake news claim, source, event, actor, or documented disinformation operation. If no candidate satisfies the selection criteria, the model returns `NONE`.
 
